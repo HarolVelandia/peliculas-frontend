@@ -14,7 +14,7 @@ export default function GeneroPage() {
 
   const fetchGeneros = async () => {
     try {
-      const res = await api.get("/genero");
+      const res = await api.get("/api/genero");
       setGeneros(res.data);
     } catch (err) {
       console.error("Error cargando géneros:", err);
@@ -24,7 +24,7 @@ export default function GeneroPage() {
   const agregarGenero = async () => {
     if (!nuevoGenero.trim()) return;
     try {
-      await api.post("/genero", { nombre: nuevoGenero });
+      await api.post("/api/genero", { nombre: nuevoGenero });
       setNuevoGenero("");
       fetchGeneros();
     } catch (err) {
@@ -34,7 +34,7 @@ export default function GeneroPage() {
 
   const eliminarEntity = async (id) => {
     try {
-      await api.delete(`/genero/${id}`);
+      await api.delete(`/api/genero/${id}`);
       fetchGeneros();
     } catch (err) {
       console.error("Error eliminando género:", err);
@@ -48,7 +48,7 @@ export default function GeneroPage() {
 
   const guardarEdicion = async (id) => {
     try {
-      await api.put(`/genero/${id}`, { nombre: entityEditado });
+      await api.put(`/api/genero/${id}`, { nombre: entityEditado });
       setEditando(null);
       setEntityEditado("");
       fetchGeneros();
