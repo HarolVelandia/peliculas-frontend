@@ -10,7 +10,7 @@ const ProductoraPage = () => {
 
   const fetchProductoras = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/productora");
+      const res = await axios.get("https://peliculas-w6nl.onrender.com/api/productora");
       setProductoras(res.data);
     } catch (error) {
       console.error("Error cargando productoras:", error);
@@ -20,7 +20,7 @@ const ProductoraPage = () => {
   const agregarProductora = async () => {
     if (!nuevaProductora.trim()) return;
     try {
-      await axios.post("http://localhost:3000/api/productora", {
+      await axios.post("https://peliculas-w6nl.onrender.com/api/productora", {
         nombre: nuevaProductora,
       });
       setNuevaProductora("");
@@ -32,7 +32,7 @@ const ProductoraPage = () => {
 
   const eliminarProductora = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/productora/${id}`);
+      await axios.delete(`https://peliculas-w6nl.onrender.com/api/productora/${id}`);
       fetchProductoras();
     } catch (error) {
       console.error("Error eliminando productora:", error);
@@ -46,7 +46,7 @@ const ProductoraPage = () => {
 
   const guardarEdicion = async (id) => {
     try {
-      await axios.put(`http://localhost:3000/api/productora/${id}`, {
+      await axios.put(`https://peliculas-w6nl.onrender.com/api/productora/${id}`, {
         nombre: productoraEditada,
       });
       setEditando(null);

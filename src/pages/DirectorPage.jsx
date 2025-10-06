@@ -10,7 +10,7 @@ const DirectorPage = () => {
 
   const fetchDirectores = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/director");
+      const res = await axios.get("https://peliculas-w6nl.onrender.com/api/director");
       setDirectores(res.data);
     } catch (error) {
       console.error("Error cargando directores:", error);
@@ -20,7 +20,7 @@ const DirectorPage = () => {
   const agregarDirector = async () => {
     if (!nuevoDirector.trim()) return;
     try {
-      await axios.post("http://localhost:3000/api/director", {
+      await axios.post("https://peliculas-w6nl.onrender.com/api/director", {
         nombre: nuevoDirector,
       });
       setNuevoDirector("");
@@ -32,7 +32,7 @@ const DirectorPage = () => {
 
   const eliminarDirector = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/director/${id}`);
+      await axios.delete(`https://peliculas-w6nl.onrender.com/api/director/${id}`);
       fetchDirectores();
     } catch (error) {
       console.error("Error eliminando director:", error);
@@ -46,7 +46,7 @@ const DirectorPage = () => {
 
   const guardarEdicion = async (id) => {
     try {
-      await axios.put(`http://localhost:3000/api/director/${id}`, {
+      await axios.put(`https://peliculas-w6nl.onrender.com/api/director/${id}`, {
         nombre: directorEditado,
       });
       setEditando(null);

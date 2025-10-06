@@ -10,7 +10,7 @@ const TipoPage = () => {
 
   const fetchTipos = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/tipo");
+      const res = await axios.get("https://peliculas-w6nl.onrender.com/api/tipo");
       setTipos(res.data);
     } catch (error) {
       console.error("Error cargando tipos:", error);
@@ -20,7 +20,7 @@ const TipoPage = () => {
   const agregarTipo = async () => {
     if (!nuevoTipo.trim()) return;
     try {
-      await axios.post("http://localhost:3000/api/tipo", { nombre: nuevoTipo });
+      await axios.post("https://peliculas-w6nl.onrender.com/api/tipo", { nombre: nuevoTipo });
       setNuevoTipo("");
       fetchTipos();
     } catch (error) {
@@ -30,7 +30,7 @@ const TipoPage = () => {
 
   const eliminarTipo = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/tipo/${id}`);
+      await axios.delete(`https://peliculas-w6nl.onrender.com/api/tipo/${id}`);
       fetchTipos();
     } catch (error) {
       console.error("Error eliminando tipo:", error);
@@ -44,7 +44,7 @@ const TipoPage = () => {
 
   const guardarEdicion = async (id) => {
     try {
-      await axios.put(`http://localhost:3000/api/tipo/${id}`, { nombre: tipoEditado });
+      await axios.put(`https://peliculas-w6nl.onrender.com/api/tipo/${id}`, { nombre: tipoEditado });
       setEditando(null);
       setTipoEditado("");
       fetchTipos();

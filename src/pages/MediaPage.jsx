@@ -25,11 +25,11 @@ const MediaPage = () => {
   const fetchData = async () => {
     try {
       const [m, g, d, p, t] = await Promise.all([
-        axios.get("http://localhost:3000/api/media"),
-        axios.get("http://localhost:3000/api/genero"),
-        axios.get("http://localhost:3000/api/director"),
-        axios.get("http://localhost:3000/api/productora"),
-        axios.get("http://localhost:3000/api/tipo"),
+        axios.get("https://peliculas-w6nl.onrender.com/api/media"),
+        axios.get("https://peliculas-w6nl.onrender.com/api/genero"),
+        axios.get("https://peliculas-w6nl.onrender.com/api/director"),
+        axios.get("https://peliculas-w6nl.onrender.com/api/productora"),
+        axios.get("https://peliculas-w6nl.onrender.com/api/tipo"),
       ]);
       setMedia(m.data);
       setGeneros(g.data);
@@ -55,14 +55,14 @@ const MediaPage = () => {
 
       if (editandoId) {
         await axios.put(
-          `http://localhost:3000/api/media/${editandoId}`,
+          `https://peliculas-w6nl.onrender.com/api/media/${editandoId}`,
           formData,
           { headers: { "Content-Type": "multipart/form-data" } }
         );
         setEditandoId(null);
       } else {
         await axios.post(
-          "http://localhost:3000/api/media",
+          "https://peliculas-w6nl.onrender.com/api/media",
           formData,
           { headers: { "Content-Type": "multipart/form-data" } }
         );
@@ -87,7 +87,7 @@ const MediaPage = () => {
 
   const eliminarMedia = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/media/${id}`);
+      await axios.delete(`https://peliculas-w6nl.onrender.com/api/media/${id}`);
       fetchData();
     } catch (error) {
       console.error("Error eliminando media:", error);

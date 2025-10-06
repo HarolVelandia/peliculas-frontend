@@ -9,7 +9,7 @@ function Inicio() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/media")
+      .get("https://peliculas-w6nl.onrender.com/api/media")
       .then((response) => {
         setPeliculas(response.data);
         setLoading(false);
